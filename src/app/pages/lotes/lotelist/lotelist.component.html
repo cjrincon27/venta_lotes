@@ -1,28 +1,27 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12 mb-3 col-md-3 d-flex flex-column gap-3">
+        <div class="col-12 mb-3 col-md-3 d-flex flex-column gap-3" (click)="_router.navigate(['lotes/add'])">
             <button class="btn btn-primary">Add lot</button>
-            <input type="text" class="form-control">
+            <input [formControl]="searcher" type="text" class="form-control">
         </div>
-        <div class="col-12 col-md-9 d-flex gap-4 flex-wrap align-items-center justify-content-center ">
-            
+        <div *ngIf="lots$ | async as lots"
+            class="col-12 col-md-9 d-flex gap-4 flex-wrap align-items-center justify-content-center ">
+            <pre><code>{{lots | json}}</code></pre>
 
-            <div class="card" style="width: 18rem;">
-                <img src="https://www.ciencuadras.com/blog/wp-content/uploads/2022/06/Portada-consejos-para-invertir-en-un-lote.jpg" class="card-img-top" alt="lote1">
+
+            <div *ngFor="let lot of lots " class="card" style="width: 18rem;" >
+                <img src='{{lot.image}}'
+                    class="card-img-top" alt="lote1">
                 <div class="card-body">
-                  <h5 class="card-price"> $ Card price</h5>
-                  <p class="card-text"> on the card title and make up the bulk of the card's content.</p>
-                  <h5 class="card-title"> card title</h5>
-                  <button class="btn btn-primary" >Edit</button>
-                  <button class="btn btn-danger ms-2" >Delete</button>
-                  <button class="btn btn-danger ms-2" >map</button>
+                    <h5 class="card-price"> $ {{lot.price}}</h5>
+                    <p class="card-text"> {{lot.description}}</p>
+                    <h5 class="card-title"> {{lot.name}}</h5>
+                    <button class="btn btn-primary" (click)="editlote(lot)">Edit</button>
+                    <button class="btn btn-danger ms-2" (click)="deletelote(lot)">Delete</button>
+                    <button class="btn btn-danger ms-2">map</button>
                 </div>
-              </div>
-              
+            </div>
+
         </div>
     </div>
 </div>
-
-
-
-
