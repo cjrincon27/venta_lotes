@@ -26,7 +26,11 @@ export class LotsService {
   }
 
   async updateLot(lot: Lot) {
-    const lotRef = collection(this.firestore, 'lost');
+    console.log("hola");
+    console.log(lot);
+    
+    
+    const lotRef = collection(this.firestore, 'lots');
     let q = query(lotRef, where('id', '==', lot.id));
     const querySnapshot = await getDocs(q);
 
