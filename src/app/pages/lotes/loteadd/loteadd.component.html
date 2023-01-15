@@ -1,12 +1,12 @@
-<!-- [formGroup]="formulario" (ngSubmit)="onSubmit()" -->
-<form>
+<form [formGroup]="form">
+    <pre><code>{{form | json}}</code></pre>
     <div class="mb-3">
         <label class="form-label">Name</label>
         <input type="text" class="form-control" formControlName="name" />
     </div>
     <div class="mb-3">
-        <label class="form-label">price</label>
-        <input type="text" class="form-control" formControlName="price" />
+        <label class="form-label">Price</label>
+        <input type="number" class="form-control" formControlName="price" />
     </div>
     <div class="mb-3">
         <label class="form-label">Description</label>
@@ -14,60 +14,61 @@
     </div>
     <div class="mb-3">
         <label class="form-label">Latitude</label>
-        <input type="text" class="form-control" formControlName="latitude" />
+        <input type="number" class="form-control" formControlName="latitude" />
     </div>
     <div class="mb-3">
         <label class="form-label">Longitude</label>
-        <input type="text" class="form-control" formControlName="longitude" />
+        <input type="number" class="form-control" formControlName="longitude" />
     </div>
     <div class="mb-3">
-    <h2>fill in the coordinates to show the area of ​​the land </h2>
-   </div>
+        <h2>fill in the coordinates to show the area of the lot    </h2>
+    </div>
     <div class="container mb-3">
         <div class="row">
             <div class="col-6">
                 <label>Latitude Point 1:</label>
-                <input type="text" class="form-control" id="polygonPoint1Latitude">
+                <input type="number" class="form-control" formControlName="latitude1">
             </div>
             <div class="col-6">
                 <label>Longitude Point 1:</label>
-                <input type="text" class="form-control" id="polygonPoint1Longitude">
+                <input type="number" class="form-control" formControlName="longitude1">
             </div>
         </div>
         <div class="row">
             <div class="col-6">
                 <label>Latitude Point 2:</label>
-                <input type="text" class="form-control" id="polygonPoint1Latitude">
+                <input type="number" class="form-control" formControlName="latitude2">
             </div>
             <div class="col-6">
                 <label>Longitude Point 2:</label>
-                <input type="text" class="form-control" id="polygonPoint1Longitude">
+                <input type="number" class="number" class="form-control" formControlName="longitude2">
             </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <label>Latitude Point 3:</label>
-                <input type="text" class="form-control" id="polygonPoint1Latitude">
             </div>
+            <div class="row">
             <div class="col-6">
-                <label>Longitude Point 3:</label>
-                <input type="text" class="form-control" id="polygonPoint1Longitude">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <label>Latitude Point 4:</label>
-                <input type="text" class="form-control" id="polygonPoint1Latitude">
+            <label>Latitude Point 3:</label>
+            <input type="number" class="form-control" formControlName="latitude3">
             </div>
             <div class="col-6">
-                <label>Longitude Point 4:</label>
-                <input type="text" class="form-control" id="polygonPoint1Longitude">
+            <label>Longitude Point 3:</label>
+            <input type="number" class="form-control" formControlName="longitude3">
             </div>
-        </div>
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Image</label>
-        <input type="text" class="form-control" formControlName="image" />
-    </div>
-    <input type="submit" value="add" class="btn btn-info" />
-</form>
+            </div>
+            <div class="row">
+            <div class="col-6">
+            <label>Latitude Point 4:</label>
+            <input type="number" class="form-control" formControlName="latitude4">
+            </div>
+            <div class="col-6">
+            <label>Longitude Point 4:</label>
+            <input type="number" class="form-control" formControlName="longitude4">
+            </div>
+            </div>
+            </div>
+            <div class="mb-3">
+            <label class="form-label">Image</label>
+            <input type="text" class="form-control" formControlName="image" />
+            </div>
+            <input type="submit" value="add" class="btn btn-info" />
+            
+            </form>
