@@ -34,7 +34,7 @@ export class LotelistComponent implements OnInit {
 
   }
   editlote(lot: Lot) {
-    this._router.navigateByUrl('lotes/edit');
+    this._router.navigateByUrl('lotes/edit',{state:{lot}});
   };
   deletelote(lot: Lot) {
     if (confirm(`Delete lot "${lot.name}" ?`)) {
