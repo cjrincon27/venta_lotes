@@ -1,7 +1,7 @@
 export  interface Lot {
     id: string;
     name: string;
-    price:number;
+    price: number;
     latitude: number;
     longitude: number;
     description: string;

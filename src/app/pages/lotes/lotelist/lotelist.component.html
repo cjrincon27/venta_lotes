@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12 mb-3 col-md-3 d-flex flex-column gap-3" (click)="_router.navigate(['lotes/add'])">
-            <button class="btn btn-primary">Add lot</button>
+        <div class="col-12 mb-3 col-md-3 d-flex flex-column gap-3" >
+            <button class="btn btn-primary" (click)="_router.navigate(['lotes/add'])">Add lot</button>
             <input [formControl]="searcher" type="text" class="form-control">
         </div>
         <div *ngIf="lots$ | async as lots"
@@ -11,7 +11,7 @@
 
             <div *ngFor="let lot of lots " class="card" style="width: 18rem;" >
                 <img src='{{lot.image}}'
-                    class="card-img-top" alt="lote1">
+                    class="card-img-top" alt="{{lot.name}}">
                 <div class="card-body">
                     <h5 class="card-price"> $ {{lot.price}}</h5>
                     <p class="card-text"> {{lot.description}}</p>
