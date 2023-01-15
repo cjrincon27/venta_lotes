@@ -6,8 +6,6 @@
         </div>
         <div *ngIf="lots$ | async as lots"
             class="col-12 col-md-9 d-flex gap-4 flex-wrap align-items-center justify-content-center ">
-            <pre><code>{{lots | json}}</code></pre>
-
 
             <div *ngFor="let lot of lots " class="card" style="width: 18rem;" >
                 <img src='{{lot.image}}'
