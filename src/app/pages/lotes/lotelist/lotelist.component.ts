@@ -38,7 +38,7 @@ export class LotelistComponent implements OnInit {
   };
   deletelote(lot: Lot) {
     if (confirm(`Delete lot "${lot.name}" ?`)) {
-      //this._lotService.deletelote(lot.id);
+      this._lotService.deletePlote(lot.id);
     }
   };
 }

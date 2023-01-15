@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, addDoc, query, where, collectionData, getDocs,doc,updateDoc} from "@angular/fire/firestore";
+import { Firestore, addDoc, query, where, collectionData, getDocs,doc,updateDoc,deleteDoc} from "@angular/fire/firestore";
 import { collection } from "@firebase/firestore";
 import { Observable } from 'rxjs';
 import { Lot } from '../commons/interfaces/lot.interface';
@@ -39,5 +39,16 @@ export class LotsService {
       await updateDoc(docRef, { ...lot});
     });
   };
+
+  async deletePlote(id: string) {
+    const lotRef = collection(this.firestore, 'lots');
+    let q = query(lotRef, where('id', '==', id));
+    const querySnapshot = await getDocs(q);
+
+    querySnapshot.forEach(async (document) => {
+      const docRef = doc(this.firestore, 'lots', document.id);
+      deleteDoc(docRef);
+    });
+  }
   
 }

@@ -46,8 +46,13 @@ export class LoteeditComponent {
   }
  
 
-  updatelot() { 
-    this._lotService.updateLot({...this.form.getRawValue()} as Lot);
+  updatelot() {
+    console.log("hola");
+     
+   console.log( this.lot.id);
+   
+    this._lotService.updateLot({id: this.lot.id,...this.form.getRawValue()} as Lot);
     this._router.navigate(['lotes']);
   }
+  
 }
