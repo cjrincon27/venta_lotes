@@ -18,7 +18,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./loteedit.component.sass']
 })
 export class LoteeditComponent {
-  _location = inject(Location)
+  _location = inject(Location);
+  lot!:Lot;
 
   form = new FormGroup({
     name: new FormControl(),
@@ -37,7 +38,9 @@ export class LoteeditComponent {
     longitude4: new FormControl(),
   });
   ngOnInit(){
-    console.log(this._location.getState());
+    
+    this.lot=(this._location.getState() as any).lot ; 
+    this.form.patchValue(this.lot);
   }
 
 }
