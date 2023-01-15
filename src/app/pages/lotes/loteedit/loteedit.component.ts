@@ -1,5 +1,5 @@
 import { Component ,inject} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule ,Location} from '@angular/common';
 import {
   FormControl,
   FormGroup,
@@ -18,9 +18,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./loteedit.component.sass']
 })
 export class LoteeditComponent {
-  _lotService=inject(LotsService);
-  _router=inject(Router);
-  
+  _location = inject(Location)
+
   form = new FormGroup({
     name: new FormControl(),
     price: new FormControl(),
@@ -37,5 +36,8 @@ export class LoteeditComponent {
     latitude4: new FormControl(),
     longitude4: new FormControl(),
   });
+  ngOnInit(){
+    console.log(this._location.getState());
+  }
 
 }
